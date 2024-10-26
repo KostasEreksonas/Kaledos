@@ -19,13 +19,16 @@ export class GoodsAddComponent {
 
   }
 
-  public addNewGood(){
-    const tmp:Good= {
-      description: "Šalikas",
-      recipient: "Žmona",
-      status: "Suplanuotas",
-      id: null
+  public addNewGood() {
+    if (this.description != null && this.recipient != null && this.status != null) {
+      const tmp: Good = {
+        description: this.description,
+        recipient: this.recipient,
+        status: this.status,
+        id: null
+      }
+
+      this.goodsService.addGood(tmp);
     }
-    this.goodsService.addGood(tmp);
   }
 }
