@@ -15,6 +15,7 @@ export class GoodsListComponent {
   public constructor(private goodsService:GoodsService) {
     this.goodsService.loadGoods().subscribe((data)=>{
       for (let k in data) {
+        data[k].id=k;
         this.goods.push(data[k]);
       }
     });
